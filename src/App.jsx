@@ -40,8 +40,6 @@ function App() {
           <TextBlock />
         </ParallaxLayer>
       </Parallax>
-      {/* <Parallax pages={2} style={{ top: '0', left: '0' }} class='animation'>
-      </Parallax> */}
 
     </>
   )
