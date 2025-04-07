@@ -1,0 +1,33 @@
+In our current workflow, we do a full site build and deployment every 3 weeks. If one team finishes a component early, they still have to wait for that big release.
+
+That also means if something breaks, it affects the entire release — there’s no easy way to isolate changes, test gradually, or roll back quickly.
+
+So I built a lightweight feature flag system using React Context and localStorage, entirely on the frontend.
+
+It supports simple on/off toggles, percentage rollouts, user segment targeting, and it keeps flag state persistent across page refreshes.
+
+This allows us to ship both MVP and Final versions of a component in the same bundle, and decide which one is shown dynamically — no need to rebuild or redeploy.
+
+Let me show you how it works.
+
+Right now you’re seeing the MVP version of this calculator.
+
+I have a toggle panel where I can switch to the Final version — and just like that, we see the updated version without a full page reload or new deployment.
+
+I can also configure it so that only 10% of users, or only beta users, see the Final version — great for testing or gradual rollout.
+
+The flags persist using localStorage, so refreshing the page or navigating doesn’t reset the state.
+
+This approach works perfectly with our current architecture: we use Contentful for content, Next.js for building the bundle, and WEM to host the static output.
+
+Since this flag system is entirely browser-based, it doesn’t need a backend or server-side rendering — we can keep our static workflow and still ship feature-gated components.
+
+And if something goes wrong, we don’t need to revert code — just flip the flag and we’re back to the MVP instantly.
+
+This solves the interview’s original ask: how do we migrate complex UI faster and better?
+
+Instead of replacing a form or calculator in one risky move, we deliver both versions and control release through flags.
+
+It gives teams more autonomy, improves release safety, and makes testing in production far more controlled.
+
+Thank you — happy to dive into how this can scale to other components or evolve with content-driven flags and ISR in the future.
