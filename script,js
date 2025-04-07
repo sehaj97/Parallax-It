@@ -1,17 +1,12 @@
-✅ How Contentful Feature Flag Solution Works
-Each HOC or component block in Contentful includes a field like component_version: 'mvp' | 'final'.
 
-During next build, Next.js fetches this field via getStaticProps and uses it to render the correct version.
+🟩 1. Feature Flag System
+"To tackle the challenge of big bang releases and improve the way we migrate complex UI like calculators or forms, I built a lightweight feature flag system using React Context and localStorage.
+It allows us to ship both MVP and Final versions in the same bundle, toggle visibility at runtime, and roll out gradually — without needing a full redeploy."
 
-Editors can update the flag in Contentful to control what shows up — without any code changes.
+🟨 2. Storybook + Unit Testing Automation
+"To improve component reliability and enable design-dev alignment, I set up Storybook for isolated component development, paired with automated unit tests using Jest and Testing Library.
+It allows teams to document and visually test components with real data from Contentful, reducing integration bugs and improving confidence before merging."
 
-Once deployed, teams can flip between versions instantly by editing content — no rebuild needed unless code changes.
-
-✅ How ISR Works
-ISR allows static pages built with getStaticProps to be re-generated in the background after deployment.
-
-You define a revalidate interval (e.g. revalidate: 60) to trigger when the page should refresh.
-
-On the next visit after that interval, the page is rebuilt in the background with fresh data (e.g. new flags).
-
-It gives you the performance of static with the flexibility of dynamic updates — no full redeploy required.
+🟦 3. AST Tools for Developer Experience
+"To reduce manual code changes and enforce standards, I’ve been experimenting with AST-based tooling — like codemods to auto-update component usage or refactor props across large codebases.
+This helps maintain consistency, cut down on review cycles, and streamline migrations when component APIs change."
